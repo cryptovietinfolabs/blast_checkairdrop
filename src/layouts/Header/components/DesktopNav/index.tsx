@@ -1,6 +1,4 @@
 import { Button, HStack, Text } from "@chakra-ui/react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 import { INavItem } from "@/constants/navList";
 
@@ -13,8 +11,6 @@ interface IDesktopNav {
 export default function DesktopNav({
   navList,
 }: IDesktopNav): React.ReactElement {
-  const pathname = usePathname();
-
   return (
     <HStack gap={6}>
       {navList.map((navItem) => {

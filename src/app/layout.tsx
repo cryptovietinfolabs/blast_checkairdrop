@@ -2,16 +2,16 @@ import "../styles/app.scss";
 
 import type { Metadata } from "next";
 import Head from "next/head";
+import { headers } from "next/headers";
+import { cookieToInitialState } from "wagmi";
 
 import { nunito } from "@/constants/fonts";
+import Footer from "@/layouts/Footer";
+import Header from "@/layouts/Header";
 import { config } from "@/wagmi/config";
 
 import Providers from "./providers";
 import Template from "./template";
-import { cookieToInitialState } from "wagmi";
-import { headers } from "next/headers";
-import Header from "@/layouts/Header";
-import Footer from "@/layouts/Footer";
 
 export const metadata: Metadata = {
   title: "Blast Airdrop",

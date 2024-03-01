@@ -1,9 +1,10 @@
 "use client";
 
+import { Box } from "@chakra-ui/react";
 import { useAccount } from "wagmi";
+
 import NotifModal from "./components/NotifModal";
 import s from "./style.module.scss";
-import { Box } from "@chakra-ui/react";
 
 export default function NotifPage(): React.ReactElement {
   const { isConnected } = useAccount();

@@ -1,15 +1,14 @@
 "use client";
 
 import { Box, Flex, Stack } from "@chakra-ui/react";
+import { useAccount } from "wagmi";
 
 import Container from "@/components/Container";
 
-import s from "./style.module.scss";
 import ConnectWalletBtn from "./components/ConnectWalletBtn";
-import { Account } from "./components/Account";
-import { useAccount } from "wagmi";
 import NotifModal from "./components/NotifModal";
 import Requirements from "./components/Requirements";
+import s from "./style.module.scss";
 
 export default function HomePage(): React.ReactElement {
   const { isConnected } = useAccount();

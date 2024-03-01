@@ -1,5 +1,3 @@
-import Title from "@/components/Title";
-import s from "./style.module.scss";
 import {
   Box,
   Button,
@@ -12,8 +10,12 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
-import { evening } from "@/constants/fonts";
 import { useDisconnect } from "wagmi";
+
+import Title from "@/components/Title";
+import { evening } from "@/constants/fonts";
+
+import s from "./style.module.scss";
 
 interface NotifModalProps {
   status: "success" | "failed";

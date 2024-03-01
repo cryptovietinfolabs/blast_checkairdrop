@@ -1,4 +1,3 @@
-import Title from "@/components/Title";
 import {
   Card,
   CardBody,
@@ -8,6 +7,8 @@ import {
   Text,
   UnorderedList,
 } from "@chakra-ui/react";
+
+import Title from "@/components/Title";
 
 export default function Requirements(): React.ReactElement {
   return (

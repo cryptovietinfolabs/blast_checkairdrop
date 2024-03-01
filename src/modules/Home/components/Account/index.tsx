@@ -20,7 +20,6 @@ import SvgInsert from "@/components/SvgInsert";
 import { truncateAddress } from "@/utils/truncateAddress";
 
 import s from "./style.module.scss";
-import Link from "next/link";
 
 export function Account(): React.ReactElement {
   const [_, copy] = useCopyToClipboard();

@@ -1,9 +1,6 @@
 "use client";
-import { Button, Flex, Text, VStack } from "@chakra-ui/react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Button, Flex, Text } from "@chakra-ui/react";
 
-import SvgInsert from "@/components/SvgInsert";
 import { INavItem } from "@/constants/navList";
 
 import s from "./style.module.scss";
@@ -12,8 +9,6 @@ interface IMobileNav {
 }
 
 export default function MobileNav({ navList }: IMobileNav): React.ReactElement {
-  const pathname = usePathname();
-
   return (
     <Flex className={`${s.mobileNav}`} justifyContent="space-between">
       {navList.map((navItem) => {

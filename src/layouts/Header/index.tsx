@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Button, HStack, Text } from "@chakra-ui/react";
+import { Box, Button, HStack } from "@chakra-ui/react";
 import Container from "@Components/Container";
 import Image from "next/image";
 import { useState } from "react";

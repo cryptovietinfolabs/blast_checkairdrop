@@ -4,8 +4,8 @@ import { State } from "wagmi";
 
 import { BlastThemeProvider } from "@/contexts/BlastThemeProvider";
 import QueryClientProviders from "@/contexts/QueryClientProvider";
-import WagmiProviders from "@/contexts/WagmiProvider";
 import { UiProvider } from "@/contexts/UiProvider";
+import WagmiProviders from "@/contexts/WagmiProvider";
 
 type ProviderType = {
   children: React.ReactNode;

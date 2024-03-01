@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
 import { Button, Modal, ModalContent, ModalOverlay } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import * as React from "react";
 import { Connector, useAccount, useConnect, useSwitchChain } from "wagmi";
 
 import SvgInsert from "@/components/SvgInsert";
 
 import s from "./style.module.scss";
-import { useRouter } from "next/navigation";
 
 interface IWalletOptions {
   isOpen: boolean;
@@ -28,12 +28,12 @@ export function WalletOptions({
     if (isConnected) router.push("/notif");
   }, [isConnected]);
 
-  const handleConnectWallet = async (connector: Connector) => {
+  const handleConnectWallet = async (connector: Connector): Promise<void> => {
     onClose();
     await connect({ connector });
   };
 
-  const handleSwitchChain = () => {
+  const handleSwitchChain = (): void => {
     switchChain({
       chainId: parseInt(process.env.NEXT_PUBLIC_CHAINID as string),
     });

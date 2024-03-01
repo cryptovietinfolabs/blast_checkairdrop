@@ -1,6 +1,7 @@
-import s from "./style.module.scss";
 import { Box } from "@chakra-ui/react";
 import Image from "next/image";
+
+import s from "./style.module.scss";
 
 export default function Bg(): React.ReactElement {
   return (

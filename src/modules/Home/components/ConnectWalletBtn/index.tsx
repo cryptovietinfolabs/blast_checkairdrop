@@ -2,9 +2,10 @@
 
 import { Box, Button, Text, useDisclosure } from "@chakra-ui/react";
 
+import { evening } from "@/constants/fonts";
+
 import { WalletOptions } from "../WalletOptions";
 import s from "./style.module.scss";
-import { evening } from "@/constants/fonts";
 
 export default function ConnectWalletBtn(): React.ReactElement {
   const { isOpen, onOpen, onClose } = useDisclosure();
