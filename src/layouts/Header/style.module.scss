@@ -1,0 +1,115 @@
+.header {
+  z-index: 2;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  &_connectWalletBtn {
+    column-gap: 8px;
+  }
+
+  &_link {
+    color: var(--brand-camo-200);
+    transition: all 0.3s ease-in-out;
+    &.active {
+      color: var(--black) !important;
+    }
+
+    &:hover {
+      color: var(--brand-camo-100);
+    }
+  }
+}
+
+.githubLogo {
+  aspect-ratio: 1;
+  width: 36px;
+  height: auto;
+}
+
+.hamburger {
+  position: relative;
+  width: rem(24px);
+  height: rem(20px);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  display: none;
+  z-index: 9999999;
+  display: block;
+
+  @include pcSmall {
+    display: none;
+  }
+
+  span {
+    display: block;
+    position: absolute;
+    height: rem(2px);
+    width: 100%;
+    background: var(--brand-yellow-100);
+    opacity: 1;
+    left: 0;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: 0.25s ease-in-out;
+    -moz-transition: 0.25s ease-in-out;
+    -o-transition: 0.25s ease-in-out;
+    transition: 0.25s ease-in-out;
+
+    &:nth-child(1) {
+      top: 3px;
+    }
+
+    &:nth-child(2),
+    &:nth-child(3) {
+      top: rem(10px);
+    }
+
+    &:nth-child(4) {
+      top: rem(17px);
+    }
+  }
+
+  &.open {
+    span {
+      &:nth-child(1) {
+        top: 3px;
+        width: 0%;
+        left: 50%;
+      }
+
+      &:nth-child(2) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(3) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+      }
+
+      &:nth-child(4) {
+        top: 17px;
+        width: 0%;
+        left: 50%;
+      }
+    }
+  }
+}

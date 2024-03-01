@@ -1,0 +1,19 @@
+.bg_deco {
+  position: relative;
+  width: 800px;
+  height: auto;
+  aspect-ratio: 1;
+
+  &_wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translateX(50%) translateY(50%);
+  }
+
+  img {
+    width: 800px;
+    height: auto;
+    aspect-ratio: 1;
+  }
+}

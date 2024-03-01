@@ -1,0 +1,22 @@
+:root {
+  --gap-x: 24px;
+  --padding-container: 120px;
+
+  --white: #ffffff;
+  --black: #000000;
+  --orange: #ff6b02;
+
+  --brand-yellow-200: #fcfc03;
+  --brand-yellow-100: #fcfdc7;
+
+  --brand-camo-400: #11140c;
+  --brand-camo-300: #404833;
+  --brand-camo-200: #75835d;
+  --brand-camo-100: #9ba885;
+
+  --brand-lime: #98dd28;
+  --brand-mars: #ed4e1d;
+
+  --easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --easeInOutQuart: cubic-bezier(0.76, 0, 0.24, 1);
+}
