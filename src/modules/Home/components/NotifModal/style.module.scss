@@ -1,7 +1,13 @@
 .notif {
   &_img {
+    display: flex;
+    align-self: center;
     position: relative;
-    width: 400px;
+    width: 250px;
     aspect-ratio: 1;
+
+    @include min-tablet {
+      width: 360px;
+    }
   }
 }

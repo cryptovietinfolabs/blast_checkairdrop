@@ -25,7 +25,12 @@ export const Button: ComponentStyleConfig = {
       transition: "all 0.3s ease-in-out",
       fontWeight: "bolder",
       _hover: {
-        bg: "brand.camo.100",
+        bg: "brand.yellow.200",
+      },
+      _disabled: {
+        _hover: {
+          bg: "brand.camo.300",
+        },
       },
     },
     ghost: {
@@ -38,6 +43,15 @@ export const Button: ComponentStyleConfig = {
         },
       },
     },
+    outline: {
+      borderRadius: "24px",
+      borderWidth: "1px",
+      borderStyle: "solid",
+      borderColor: "brand.camo.200",
+      height: "100%",
+      px: "4px",
+      py: "4px",
+    },
   },
 };
 
@@ -49,10 +63,7 @@ export const Card: ComponentStyleConfig = {
         base: 4,
         lg: 6,
       },
-      borderWidth: "1px",
-      borderStyle: "solid",
-      borderColor: "brand.camo.300",
-      bg: "rgba(17, 20, 13, 0.3)",
+      bg: "#1C1E1A",
       backdropFilter: "blur(70px)",
       borderRadius: "2xl",
     },
