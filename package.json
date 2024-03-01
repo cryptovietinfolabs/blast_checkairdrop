@@ -1,5 +1,5 @@
 {
-  "name": "blast_airdrop",
+  "name": "blast_checkairdrop",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,8 +11,8 @@
     "lint:css": "prettier '**/*.{json,yaml,css,scss}' --write --ignore-path .eslintignore",
     "format": "yarn lint:fix && yarn lint:css",
     "prepare": "husky install .husky",
-    "deploy": "npm run build && pm2 start npm --name blast_airdrop -- start",
-    "reDeploy": "npm run build && pm2 restart blast_airdrop"
+    "deploy": "npm run build && pm2 start npm --name blast_checkairdrop -- start",
+    "reDeploy": "npm run build && pm2 restart blast_checkairdrop"
   },
   "dependencies": {
     "@chakra-ui/next-js": "^2.2.0",
