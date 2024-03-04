@@ -29,7 +29,7 @@ export default function NotifModal({
         <CardHeader>
           <Box textAlign="center">
             <Title color="brand.yellow.200" size="md">
-              {`${status === "success" ? "#Bleble Congratulation!" : "Sorry"}`}
+              {`${status === "success" ? "#Bleble Eligible!" : "Sorry"}`}
             </Title>
           </Box>
         </CardHeader>

@@ -19,7 +19,9 @@ export default function HomePage(): React.ReactElement {
   const { isConnected, address: userAddress } = useAccount();
   const [qualified, setQualified] = useState<"success" | "failed">("failed");
 
-  const isHoldNFTQualified = useHoldNFT(userAddress || "0x0");
+  const { isQualified: isHoldNFTQualified, collections } = useHoldNFT(
+    userAddress || "0x0",
+  );
   const isHoldPepeQualified = useHoldPepe(userAddress || "0x0");
   const isDepositBlastQualified = useDepositBlast(userAddress || "0x0");
 
@@ -47,7 +49,15 @@ export default function HomePage(): React.ReactElement {
 
           <Flex alignSelf="center">{!isConnected && <ConnectWalletBtn />}</Flex>
 
-          {isConnected && <NotifModal status={qualified} />}
+          {isConnected && (
+            <NotifModal
+              status={qualified}
+              collections={collections}
+              isHoldNFTQualified={isHoldNFTQualified}
+              isHoldPepeQualified={isHoldPepeQualified}
+              isDepositBlastQualified={isDepositBlastQualified}
+            />
+          )}
         </Stack>
       </HStack>
     </Container>

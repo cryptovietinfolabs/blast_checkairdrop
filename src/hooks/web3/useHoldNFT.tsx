@@ -2,8 +2,23 @@ import { useEffect, useState } from "react";
 import { erc721Abi } from "viem";
 import { useReadContracts } from "wagmi";
 
-const useHoldNFT = (owner: `0x${string}`): boolean => {
+const useHoldNFT = (
+  owner: `0x${string}`,
+): {
+  isQualified: boolean;
+  collections: string[];
+} => {
   const [isQualified, setIsQualified] = useState<boolean>(false);
+  const [collections, setCollections] = useState<string[]>([]);
+
+  const collectionMapping = [
+    "Azuki",
+    "Lil Pubgy",
+    "Pudgy",
+    "Milady",
+    "Mutant Ape Yacht",
+    "Bored Ape Yacht",
+  ];
 
   const { data } = useReadContracts({
     contracts: [
@@ -48,12 +63,23 @@ const useHoldNFT = (owner: `0x${string}`): boolean => {
 
   useEffect(() => {
     if (!data) return;
+
+    const userCollections: string[] = [];
+    data.map((value, i) => {
+      if (Number(value.result) > 0) userCollections.push(collectionMapping[i]);
+    });
+
+    setCollections(userCollections);
+
     data.some((d) => {
       if (Number(d.result) > 0) setIsQualified(true);
     });
   }, [data, owner]);
 
-  return isQualified;
+  return {
+    isQualified,
+    collections,
+  };
 };
 
 export default useHoldNFT;

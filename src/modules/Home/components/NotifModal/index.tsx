@@ -5,8 +5,10 @@ import {
   CardBody,
   CardHeader,
   Flex,
+  ListItem,
   Stack,
   Text,
+  UnorderedList,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
@@ -20,10 +22,18 @@ import s from "./style.module.scss";
 
 interface NotifModalProps {
   status: "success" | "failed";
+  isHoldNFTQualified: boolean;
+  isHoldPepeQualified: boolean;
+  isDepositBlastQualified: boolean;
+  collections: string[];
 }
 
 export default function NotifModal({
   status,
+  isHoldNFTQualified,
+  isHoldPepeQualified,
+  isDepositBlastQualified,
+  collections,
 }: NotifModalProps): React.ReactElement {
   const { disconnect } = useDisconnect();
 
@@ -34,7 +44,7 @@ export default function NotifModal({
           <CardHeader>
             <Box textAlign="center">
               <Title color="brand.yellow.200" size="md">
-                {`${status === "success" ? "#Bleble Congratulation!" : "Sorry"}`}
+                {`${status === "success" ? "#Bleble Eligible!" : "Sorry"}`}
               </Title>
             </Box>
           </CardHeader>
@@ -43,6 +53,41 @@ export default function NotifModal({
               <Text color="brand.yellow.100" fontSize="xl" textAlign="center">
                 {`${status === "success" ? "REACHED the Blast membership!" : "You are not on the Holders list"}`}
               </Text>
+              <UnorderedList>
+                {isHoldNFTQualified && (
+                  <ListItem>
+                    <Stack>
+                      <Text fontSize="md" color="brand.camo.200">
+                        NFT Holder: {collections.join(", ")}
+                      </Text>
+                    </Stack>
+                  </ListItem>
+                )}
+                {isHoldPepeQualified && (
+                  <ListItem>
+                    <Text
+                      fontSize="md"
+                      color="brand.camo.200"
+                      display="flex"
+                      alignItems="center"
+                    >
+                      Top 30% Pepe Holders
+                    </Text>
+                  </ListItem>
+                )}
+                {isDepositBlastQualified && (
+                  <ListItem>
+                    <Text
+                      fontSize="md"
+                      color="brand.camo.200"
+                      display="flex"
+                      alignItems="center"
+                    >
+                      Staked 0.01+ $ETH on Blast
+                    </Text>
+                  </ListItem>
+                )}
+              </UnorderedList>
               <Box className={s.notif_img}>
                 {status === "success" ? (
                   <Image src="/bleble-happy.png" alt="happy ble ble" fill />

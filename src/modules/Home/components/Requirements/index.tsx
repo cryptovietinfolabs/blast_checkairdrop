@@ -69,7 +69,7 @@ export default function Requirements(): React.ReactElement {
                 display="flex"
                 alignItems="center"
               >
-                Top 10% Pepe Holders
+                Top 30% Pepe Holders
                 <Box
                   className={s.collection_img}
                   as="span"
