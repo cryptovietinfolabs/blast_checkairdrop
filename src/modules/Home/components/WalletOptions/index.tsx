@@ -23,6 +23,23 @@ export function WalletOptions({
   const { isConnected } = useAccount();
   const router = useRouter();
   const { switchChain } = useSwitchChain();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [modifiedConnectors, setModifiedConnectors] = React.useState<any[]>([]);
+
+  useEffect(() => {
+    const metaMaskIndex = connectors.findIndex(
+      (item) => item.id === "io.metamask",
+    );
+    if (metaMaskIndex !== -1) {
+      const modifiedConnectors = [
+        connectors[metaMaskIndex],
+        ...connectors.slice(0, metaMaskIndex),
+        ...connectors.slice(metaMaskIndex + 1),
+      ];
+
+      setModifiedConnectors(modifiedConnectors);
+    }
+  }, [connectors]);
 
   useEffect(() => {
     if (isConnected) router.push("/notif");
@@ -48,7 +65,7 @@ export function WalletOptions({
     <Modal isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />
       <ModalContent>
-        {connectors.map((connector) => (
+        {modifiedConnectors.map((connector) => (
           <WalletOption
             key={connector.uid}
             connector={connector}
