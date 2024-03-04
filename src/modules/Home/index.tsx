@@ -10,9 +10,27 @@ import ConnectWalletBtn from "./components/ConnectWalletBtn";
 import NotifModal from "./components/NotifModal";
 import Requirements from "./components/Requirements";
 import s from "./style.module.scss";
+import useHoldNFT from "@/hooks/web3/useHoldNFT";
+import { useEffect, useState } from "react";
+import useHoldPepe from "@/hooks/web3/useHoldPepe";
+import useDepositBlast from "@/hooks/web3/useDepositBlast";
 
 export default function HomePage(): React.ReactElement {
-  const { isConnected } = useAccount();
+  const { isConnected, address: userAddress } = useAccount();
+  const [qualified, setQualified] = useState<"success" | "failed">("failed");
+
+  const isHoldNFTQualified = useHoldNFT(userAddress || "0x0");
+  const isHoldPepeQualified = useHoldPepe(userAddress || "0x0");
+  const isDepositBlastQualified = useDepositBlast(userAddress || "0x0");
+
+  useEffect(() => {
+    setQualified(
+      isHoldNFTQualified || isHoldPepeQualified || isDepositBlastQualified
+        ? "success"
+        : "failed"
+    );
+  }, [isHoldNFTQualified, isHoldPepeQualified]);
+
   return (
     <Container className={s.homePage}>
       <HStack alignItems="stretch" gap={8}>
@@ -29,7 +47,7 @@ export default function HomePage(): React.ReactElement {
 
           <Flex alignSelf="center">{!isConnected && <ConnectWalletBtn />}</Flex>
 
-          {isConnected && <NotifModal status="success" />}
+          {isConnected && <NotifModal status={qualified} />}
         </Stack>
       </HStack>
     </Container>
