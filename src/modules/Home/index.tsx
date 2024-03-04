@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 
 import Container from "@/components/Container";
-import useDepositBlast from "@/hooks/web3/useDepositBlast";
 import useHoldNFT from "@/hooks/web3/useHoldNFT";
 import useHoldPepe from "@/hooks/web3/useHoldPepe";
 
@@ -20,7 +19,7 @@ export default function HomePage(): React.ReactElement {
   const [qualified, setQualified] = useState<"success" | "failed">("failed");
 
   const { isQualified: isHoldNFTQualified, collections } = useHoldNFT(
-    userAddress || "0x0"
+    userAddress || "0x0",
   );
   const isHoldPepeQualified = useHoldPepe(userAddress || "0x0");
   // const isDepositBlastQualified = useDepositBlast(userAddress || "0x0");
@@ -39,7 +38,7 @@ export default function HomePage(): React.ReactElement {
     setQualified(
       isHoldNFTQualified || isHoldPepeQualified || isDepositBlastQualified
         ? "success"
-        : "failed"
+        : "failed",
     );
   }, [isHoldNFTQualified, isHoldPepeQualified]);
 
