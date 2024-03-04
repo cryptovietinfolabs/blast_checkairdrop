@@ -8,7 +8,7 @@ export const navList: INavItem[] = [
     name: "What is Ble Ble?",
     link: "https://test.bleble.vip/",
   },
-  {
-    name: "Airdrop",
-  },
+  // {
+  //   name: "Airdrop",
+  // },
 ];

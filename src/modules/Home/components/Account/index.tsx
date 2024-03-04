@@ -43,7 +43,9 @@ export function Account(): React.ReactElement {
       <PopoverTrigger>
         <HStack className={s.address}>
           <Box className={s.dot} />
-          <Text fontSize="sm">{truncatedAddress}</Text>
+          <Text fontSize="sm" color="brand.yellow.100">
+            {truncatedAddress}
+          </Text>
           <IconButton
             isRound
             size="sm"
