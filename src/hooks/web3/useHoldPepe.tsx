@@ -14,7 +14,7 @@ const useHoldPepe = (owner: `0x${string}`): boolean => {
 
   useEffect(() => {
     if (!data) return;
-    if (Number(data) > Number(10000000000000000000000000000))
+    if (Number(data) > Number(5000000000000000000000000000))
       setIsQualified(true);
   }, [data, owner]);
 
