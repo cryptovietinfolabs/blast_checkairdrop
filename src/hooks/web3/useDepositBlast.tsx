@@ -14,8 +14,7 @@ const useDepositBlast = (owner: `0x${string}`): boolean => {
 
   useEffect(() => {
     if (!data) return;
-    if (Number(data) > Number(100000000000000000))
-      setIsQualified(true);
+    if (Number(data) > Number(100000000000000000)) setIsQualified(true);
   }, [data, owner]);
 
   return isQualified;

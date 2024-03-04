@@ -1,19 +1,19 @@
 "use client";
 
 import { Flex, HStack, Stack } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 
 import Container from "@/components/Container";
+import useDepositBlast from "@/hooks/web3/useDepositBlast";
+import useHoldNFT from "@/hooks/web3/useHoldNFT";
+import useHoldPepe from "@/hooks/web3/useHoldPepe";
 
 import GetMoreCard from "../../layouts/GetMoreCard";
 import ConnectWalletBtn from "./components/ConnectWalletBtn";
 import NotifModal from "./components/NotifModal";
 import Requirements from "./components/Requirements";
 import s from "./style.module.scss";
-import useHoldNFT from "@/hooks/web3/useHoldNFT";
-import { useEffect, useState } from "react";
-import useHoldPepe from "@/hooks/web3/useHoldPepe";
-import useDepositBlast from "@/hooks/web3/useDepositBlast";
 
 export default function HomePage(): React.ReactElement {
   const { isConnected, address: userAddress } = useAccount();
@@ -27,7 +27,7 @@ export default function HomePage(): React.ReactElement {
     setQualified(
       isHoldNFTQualified || isHoldPepeQualified || isDepositBlastQualified
         ? "success"
-        : "failed"
+        : "failed",
     );
   }, [isHoldNFTQualified, isHoldPepeQualified]);
 

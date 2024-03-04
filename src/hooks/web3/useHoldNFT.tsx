@@ -1,4 +1,3 @@
-import { collectionAddresses } from "@/constants/collectionAddresses";
 import { useEffect, useState } from "react";
 import { erc721Abi } from "viem";
 import { useReadContracts } from "wagmi";
