@@ -40,7 +40,7 @@ export default function HomePage(): React.ReactElement {
         ? "success"
         : "failed",
     );
-  }, [isHoldNFTQualified, isHoldPepeQualified]);
+  }, [isHoldNFTQualified, isHoldPepeQualified, isDepositBlastQualified]);
 
   return (
     <Container className={s.homePage}>
