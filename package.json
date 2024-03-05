@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 3340",
+    "start": "next start -p 3350",
     "lint": "next lint",
     "lint:fix": "next lint --fix --ignore-path .eslintignore",
     "lint:css": "prettier '**/*.{json,yaml,css,scss}' --write --ignore-path .eslintignore",
