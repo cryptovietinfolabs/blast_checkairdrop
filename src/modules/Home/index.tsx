@@ -27,11 +27,13 @@ export default function HomePage(): React.ReactElement {
     useState<boolean>(false);
 
   useEffect(() => {
-    fetch(`https://api.bleble.vip/deposit/${userAddress}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setIsDepositBlastQualified(data.status);
-      });
+    (async (): Promise<void> => {
+      fetch(`https://api.bleble.vip/deposit/${userAddress}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setIsDepositBlastQualified(data.status);
+        });
+    })();
   }, []);
 
   useEffect(() => {
