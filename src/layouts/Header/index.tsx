@@ -7,7 +7,6 @@ import { useState } from "react";
 import { useAccount } from "wagmi";
 
 import { navList } from "@/constants/navList";
-import useUiContext from "@/contexts/UiProvider";
 import useWindowSize from "@/hooks/common/useWindowSize";
 import { Account } from "@/modules/Home/components/Account";
 import ConnectWalletBtn from "@/modules/Home/components/ConnectWalletBtn";
@@ -20,7 +19,6 @@ export default function Header(): React.ReactElement {
   const { isDesktop } = useWindowSize();
   const { isConnected } = useAccount();
   const [isOpenNav, setIsOpenNav] = useState(false);
-  const { setIsReturnHome } = useUiContext();
 
   return (
     <Box as="header" className={`${s.header}`}>
