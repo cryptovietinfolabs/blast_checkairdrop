@@ -34,6 +34,8 @@ interface IUiContext {
   headerColor: string;
   setHeaderColor: React.Dispatch<SetStateAction<tHeaderColor>>;
   framesLoaded: number;
+  isReturnHome: boolean;
+  setIsReturnHome: React.Dispatch<SetStateAction<boolean>>;
 }
 
 export const UiContext = createContext<IUiContext>({
@@ -44,6 +46,8 @@ export const UiContext = createContext<IUiContext>({
   headerColor: "white",
   framesLoaded: 0,
   setHeaderColor: (_) => null,
+  isReturnHome: false,
+  setIsReturnHome: (_) => null,
 });
 
 function scrollRestoration(): void {
@@ -60,6 +64,7 @@ export const UiProvider: FC<PropsWithChildren> = ({ children }) => {
   const [headerColor, setHeaderColor] = useState<tHeaderColor>("white");
   const pathName = usePathname();
   const { width, isMobile } = useWindowResize();
+  const [isReturnHome, setIsReturnHome] = useState(true);
 
   useEffect(() => {
     scrollRestoration();
@@ -95,6 +100,8 @@ export const UiProvider: FC<PropsWithChildren> = ({ children }) => {
       headerColor,
       setHeaderColor,
       framesLoaded,
+      isReturnHome,
+      setIsReturnHome,
     };
   }, [
     scrollHeight,
@@ -104,6 +111,8 @@ export const UiProvider: FC<PropsWithChildren> = ({ children }) => {
     headerColor,
     setHeaderColor,
     framesLoaded,
+    isReturnHome,
+    setIsReturnHome,
   ]);
 
   return (

@@ -244,6 +244,13 @@ const List: ComponentStyleConfig = {
 const themeDark = extendTheme({
   colors,
   config,
+  styles: {
+    global: () => ({
+      body: {
+        bg: "#121212",
+      },
+    }),
+  },
 
   components: {
     Badge,

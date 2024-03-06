@@ -12,10 +12,10 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
-import { useDisconnect } from "wagmi";
 
 import Title from "@/components/Title";
 import { evening } from "@/constants/fonts";
+import useUiContext from "@/contexts/UiProvider";
 import GetMoreCard from "@/layouts/GetMoreCard";
 
 import s from "./style.module.scss";
@@ -35,7 +35,7 @@ export default function NotifModal({
   isDepositBlastQualified,
   collections,
 }: NotifModalProps): React.ReactElement {
-  const { disconnect } = useDisconnect();
+  const { setIsReturnHome } = useUiContext();
 
   return (
     <>
@@ -111,8 +111,8 @@ export default function NotifModal({
         ) : (
           <Button
             width="fit-content"
-            onClick={() => {
-              disconnect();
+            onClick={(): void => {
+              setIsReturnHome(true);
             }}
           >
             <Text className={evening.className} fontSize="2xl">

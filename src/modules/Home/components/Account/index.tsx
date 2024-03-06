@@ -17,6 +17,7 @@ import { useEffect, useState } from "react";
 import { useAccount, useBalance, useDisconnect } from "wagmi";
 
 import SvgInsert from "@/components/SvgInsert";
+import { evening } from "@/constants/fonts";
 import { truncateAddress } from "@/utils/truncateAddress";
 
 import s from "./style.module.scss";
@@ -43,7 +44,11 @@ export function Account(): React.ReactElement {
       <PopoverTrigger>
         <HStack className={s.address}>
           <Box className={s.dot} />
-          <Text fontSize="sm" color="brand.yellow.100">
+          <Text
+            fontSize="xl"
+            color="brand.yellow.100"
+            className={evening.className}
+          >
             {truncatedAddress}
           </Text>
           <IconButton

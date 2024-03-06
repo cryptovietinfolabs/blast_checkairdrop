@@ -1,10 +1,12 @@
 "use client";
 
-import { Flex, HStack, Stack } from "@chakra-ui/react";
+import { Button, Flex, HStack, Stack, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 
 import Container from "@/components/Container";
+import { evening } from "@/constants/fonts";
+import useUiContext from "@/contexts/UiProvider";
 import useHoldNFT from "@/hooks/web3/useHoldNFT";
 import useHoldPepe from "@/hooks/web3/useHoldPepe";
 
@@ -15,6 +17,7 @@ import Requirements from "./components/Requirements";
 import s from "./style.module.scss";
 
 export default function HomePage(): React.ReactElement {
+  const { isReturnHome, setIsReturnHome } = useUiContext();
   const { isConnected, address: userAddress } = useAccount();
   const [qualified, setQualified] = useState<"success" | "failed">("failed");
 
@@ -44,11 +47,15 @@ export default function HomePage(): React.ReactElement {
     );
   }, [isHoldNFTQualified, isHoldPepeQualified, isDepositBlastQualified]);
 
+  useEffect(() => {
+    if (isConnected) setIsReturnHome(false);
+  }, [isConnected]);
+
   return (
     <Container className={s.homePage}>
       <HStack alignItems="stretch" gap={8}>
         <Stack spacing={6} className={s.homePage_inner}>
-          {!isConnected && (
+          {(!isConnected || isReturnHome) && (
             <Stack
               flexDirection={{ base: "column-reverse", md: "row" }}
               gap={6}
@@ -58,9 +65,22 @@ export default function HomePage(): React.ReactElement {
             </Stack>
           )}
 
+          <Flex alignSelf="center">
+            {isConnected && isReturnHome && (
+              <Button
+                onClick={(): void => {
+                  setIsReturnHome(false);
+                }}
+              >
+                <Text className={evening.className} fontSize="2xl">
+                  Airdrop status
+                </Text>
+              </Button>
+            )}
+          </Flex>
           <Flex alignSelf="center">{!isConnected && <ConnectWalletBtn />}</Flex>
 
-          {isConnected && (
+          {isConnected && !isReturnHome && (
             <NotifModal
               status={qualified}
               collections={collections}

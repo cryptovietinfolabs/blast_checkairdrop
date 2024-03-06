@@ -41,8 +41,8 @@ const useWindowSize = (): IDimension => {
     return {
       width,
       height,
-      isMobile: width < breakpoints.md,
-      isTablet: width >= breakpoints.md && width < breakpoints.xl,
+      isMobile: width < breakpoints.sm,
+      isTablet: width >= breakpoints.sm && width < breakpoints.xl,
       isDesktop: width >= breakpoints.xl,
       scrollHeight,
     };

@@ -24,6 +24,14 @@
       color: var(--brand-camo-100);
     }
   }
+
+  &_mainNav {
+    flex-direction: row-reverse;
+
+    @include pcSmall{
+      flex-direction: row;
+    }
+  }
 }
 
 .githubLogo {
