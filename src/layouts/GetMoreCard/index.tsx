@@ -7,7 +7,7 @@ import s from "./style.module.scss";
 
 export default function GetMoreCard(): React.ReactElement {
   return (
-    <Card>
+    <Card flexGrow={1}>
       <CardHeader>
         <Box textAlign="center">
           <Title color="brand.yellow.100" size="md">
@@ -17,11 +17,11 @@ export default function GetMoreCard(): React.ReactElement {
       </CardHeader>
       <CardBody>
         <Stack alignItems="center" justifyContent="space-between">
-          <Box className={s.getMore_img}>
+          <Box className={s.getMore_img} borderRadius="10px">
             <Image src="/blast-galxe.png" alt="blast galxe" fill />
           </Box>
           <Text color="brand.yellow.100" fontSize="xl">
-            Ble Ble on Galxe
+            Airdrop Campaign on Galxe
           </Text>
         </Stack>
       </CardBody>

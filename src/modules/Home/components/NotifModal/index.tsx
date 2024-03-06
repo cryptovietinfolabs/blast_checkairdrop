@@ -5,10 +5,8 @@ import {
   CardBody,
   CardHeader,
   Flex,
-  ListItem,
   Stack,
   Text,
-  UnorderedList,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import React from "react";
@@ -18,6 +16,7 @@ import { evening } from "@/constants/fonts";
 import useUiContext from "@/contexts/UiProvider";
 import GetMoreCard from "@/layouts/GetMoreCard";
 
+import EligibleCard from "../EligibleCard";
 import s from "./style.module.scss";
 
 interface NotifModalProps {
@@ -53,41 +52,7 @@ export default function NotifModal({
               <Text color="brand.yellow.100" fontSize="xl" textAlign="center">
                 {`${status === "success" ? "REACHED the Blast membership!" : "You are not on the Holders list"}`}
               </Text>
-              <UnorderedList>
-                {isHoldNFTQualified && (
-                  <ListItem>
-                    <Stack>
-                      <Text fontSize="md" color="brand.camo.200">
-                        NFT Holder: {collections.join(", ")}
-                      </Text>
-                    </Stack>
-                  </ListItem>
-                )}
-                {isHoldPepeQualified && (
-                  <ListItem>
-                    <Text
-                      fontSize="md"
-                      color="brand.camo.200"
-                      display="flex"
-                      alignItems="center"
-                    >
-                      Top 30% Pepe Holders
-                    </Text>
-                  </ListItem>
-                )}
-                {isDepositBlastQualified && (
-                  <ListItem>
-                    <Text
-                      fontSize="md"
-                      color="brand.camo.200"
-                      display="flex"
-                      alignItems="center"
-                    >
-                      Staked 0.01+ $ETH on Blast
-                    </Text>
-                  </ListItem>
-                )}
-              </UnorderedList>
+
               <Box className={s.notif_img}>
                 {status === "success" ? (
                   <Image src="/bleble-happy.png" alt="happy ble ble" fill />
@@ -98,7 +63,17 @@ export default function NotifModal({
             </Stack>
           </CardBody>
         </Card>
-        <GetMoreCard />
+        <Stack gap={6}>
+          <GetMoreCard />
+          {status === "success" && (
+            <EligibleCard
+              collections={collections}
+              isHoldNFTQualified={isHoldNFTQualified}
+              isHoldPepeQualified={isHoldPepeQualified}
+              isDepositBlastQualified={isDepositBlastQualified}
+            />
+          )}
+        </Stack>
       </Stack>
 
       <Flex alignSelf="center">

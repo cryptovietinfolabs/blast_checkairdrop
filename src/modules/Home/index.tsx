@@ -27,7 +27,7 @@ export default function HomePage(): React.ReactElement {
   const isHoldPepeQualified = useHoldPepe(userAddress || "0x0");
   // const isDepositBlastQualified = useDepositBlast(userAddress || "0x0");
   const [isDepositBlastQualified, setIsDepositBlastQualified] =
-    useState<boolean>(false);
+    useState<boolean>(true);
 
   useEffect(() => {
     (async (): Promise<void> => {
@@ -83,10 +83,10 @@ export default function HomePage(): React.ReactElement {
           {isConnected && !isReturnHome && (
             <NotifModal
               status={qualified}
-              collections={collections}
               isHoldNFTQualified={isHoldNFTQualified}
               isHoldPepeQualified={isHoldPepeQualified}
               isDepositBlastQualified={isDepositBlastQualified}
+              collections={collections}
             />
           )}
         </Stack>
