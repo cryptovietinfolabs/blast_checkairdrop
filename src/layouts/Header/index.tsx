@@ -29,9 +29,8 @@ export default function Header(): React.ReactElement {
           <Button
             bg="transparent"
             _hover={{ bg: "transparent" }}
-            onClick={(): void => {
-              setIsReturnHome(true);
-            }}
+            as="a"
+            href="https://bleble.vip/"
           >
             <Box className={s.header_logo}>
               <Image src="/bleble-face.png" alt="logo" fill />
