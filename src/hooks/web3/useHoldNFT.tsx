@@ -62,7 +62,7 @@ const useHoldNFT = (
   });
 
   useEffect(() => {
-    console.log(data)
+    console.log(data);
     if (!data) return;
 
     const userCollections: string[] = [];

@@ -22,16 +22,16 @@ export default function HomePage(): React.ReactElement {
   const [qualified, setQualified] = useState<"success" | "failed">("failed");
 
   const { isQualified: isHoldNFTQualified, collections } = useHoldNFT(
-    "0x0097b9cFE64455EED479292671A1121F502bc954" || "0x0",
+    userAddress || "0x0",
   );
-  const isHoldPepeQualified = useHoldPepe("0x0097b9cFE64455EED479292671A1121F502bc954" || "0x0");
-  // const isDepositBlastQualified = useDepositBlast("0x0097b9cFE64455EED479292671A1121F502bc954" || "0x0");
+  const isHoldPepeQualified = useHoldPepe(userAddress || "0x0");
+  // const isDepositBlastQualified = useDepositBlast(userAddress || "0x0");
   const [isDepositBlastQualified, setIsDepositBlastQualified] =
     useState<boolean>(true);
 
   useEffect(() => {
     (async (): Promise<void> => {
-      fetch(`https://api.bleble.vip/deposit/${"0x0097b9cFE64455EED479292671A1121F502bc954"}`)
+      fetch(`https://api.bleble.vip/deposit/${userAddress}`)
         .then((res) => res.json())
         .then((data) => {
           setIsDepositBlastQualified(data.status);
