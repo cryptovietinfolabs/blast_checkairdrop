@@ -17,10 +17,22 @@ export default function GetMoreCard(): React.ReactElement {
       </CardHeader>
       <CardBody>
         <Stack alignItems="center" justifyContent="space-between">
-          <Box className={s.getMore_img} borderRadius="10px">
+          <Box
+            className={s.getMore_img}
+            borderRadius="10px"
+            as="a"
+            href="https://galxe.com/MeeT2AiDRo73NiBYKoZdwa"
+            target="_blank"
+          >
             <Image src="/blast-galxe.png" alt="blast galxe" fill />
           </Box>
-          <Text color="brand.yellow.100" fontSize="xl">
+          <Text
+            color="brand.yellow.100"
+            fontSize="xl"
+            as="a"
+            href="https://galxe.com/MeeT2AiDRo73NiBYKoZdwa"
+            target="_blank"
+          >
             Airdrop Campaign on Galxe
           </Text>
         </Stack>
