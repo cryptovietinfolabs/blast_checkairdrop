@@ -21,7 +21,7 @@ export default function GetMoreCard(): React.ReactElement {
             className={s.getMore_img}
             borderRadius="10px"
             as="a"
-            href="https://galxe.com/MeeT2AiDRo73NiBYKoZdwa"
+            href="https://galxe.com/MeeT2AiDRo73NiBYKoZdwa/campaign/GCd7Ft4Npv"
             target="_blank"
           >
             <Image src="/blast-galxe.png" alt="blast galxe" fill />
@@ -30,7 +30,7 @@ export default function GetMoreCard(): React.ReactElement {
             color="brand.yellow.100"
             fontSize="xl"
             as="a"
-            href="https://galxe.com/MeeT2AiDRo73NiBYKoZdwa"
+            href="https://galxe.com/MeeT2AiDRo73NiBYKoZdwa/campaign/GCd7Ft4Npv"
             target="_blank"
           >
             Airdrop Campaign on Galxe
