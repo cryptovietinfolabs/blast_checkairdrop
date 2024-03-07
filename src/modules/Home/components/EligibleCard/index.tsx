@@ -41,7 +41,8 @@ export default function EligibleCard({
           <List>
             {isHoldNFTQualified && (
               <ListItem>
-                <ListIcon />
+                <ListIcon as={Image} src={"/icons/check.svg"} />
+
                 <Stack>
                   <Text fontSize="md" color="#41C365">
                     NFT Holder: {collections.join(", ")}
@@ -51,7 +52,7 @@ export default function EligibleCard({
             )}
             {isHoldPepeQualified && (
               <ListItem>
-                <ListIcon />
+                <ListIcon as={Image} src={"/icons/check.svg"} />
 
                 <Text
                   fontSize="md"
