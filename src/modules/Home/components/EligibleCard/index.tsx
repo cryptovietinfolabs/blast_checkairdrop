@@ -41,27 +41,36 @@ export default function EligibleCard({
           <List>
             {isHoldNFTQualified && (
               <ListItem>
-                <ListIcon as={Image} src={"/icons/check.svg"} />
+                <HStack>
+                  <ListIcon as={Image} src={"/icons/check.svg"} />
 
-                <Stack>
-                  <Text fontSize="md" color="#41C365">
-                    NFT Holder: {collections.join(", ")}
-                  </Text>
-                </Stack>
+                  <Stack>
+                    <Text
+                      fontSize="2xl"
+                      display="flex"
+                      alignItems="center"
+                      color="#41C365"
+                    >
+                      NFT Holder: {collections.join(", ")}
+                    </Text>
+                  </Stack>
+                </HStack>
               </ListItem>
             )}
             {isHoldPepeQualified && (
               <ListItem>
-                <ListIcon as={Image} src={"/icons/check.svg"} />
+                <HStack>
+                  <ListIcon as={Image} src={"/icons/check.svg"} />
 
-                <Text
-                  fontSize="md"
-                  display="flex"
-                  alignItems="center"
-                  color="#41C365"
-                >
-                  Top 30% Pepe Holders
-                </Text>
+                  <Text
+                    fontSize="2xl"
+                    display="flex"
+                    alignItems="center"
+                    color="#41C365"
+                  >
+                    Top 30% Pepe Holders
+                  </Text>
+                </HStack>
               </ListItem>
             )}
             {isDepositBlastQualified && (
